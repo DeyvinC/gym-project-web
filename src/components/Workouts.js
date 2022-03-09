@@ -1,22 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Card } from 'antd'
+import { workoutContext } from '../App';
+import '../App.css'
+
+const { Meta } = Card
+
+function GetWorkouts() {
+
+  const { workoutList } = useContext(workoutContext)
+  const chestWorkouts = workoutList?.filter((workout) => workout.type === 'chest');
+  return (
+    <section className="chest-workouts">
+      {!chestWorkouts
+        ? <h3>Loading</h3>
+        : chestWorkouts?.map((workout, i) => {
+
+          return <Card
+            key={i}
+            className="chestCard"
+            style={{ width: 300 }}
+            cover={
+              <img
+                
+                alt="example"
+                src={workout?.image}
+                style={{width: "100%"}}
+              />
+            }
+          >
+            <Meta
+              title={workout.name}
+              description={workout.description}
+            />
+          </Card>
+        })
+      }
+    </section>
+  )
 
 
-function GetWorkouts () {
-   const [ workoutList, setWorkoutList ] = useState();
-    useEffect(() => {
-        //load data from API
-        // fetch('https://gym-project-dc.uc.r.appspot.com')
-        fetch('http://localhost:3001/workout')
-          .then(response => response.json())
-          .then(data => setWorkoutList(data))
-          .catch(err => console.error(err))
-    }, [workoutList])
-    return (
-        <>
-        <h1>Here Are my workouts</h1>
-        
-        </>
-        )
 }
 
 export default GetWorkouts;

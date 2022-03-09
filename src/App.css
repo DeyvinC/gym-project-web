@@ -1,14 +1,21 @@
-.App {
-  text-align: center;
+.header {
+  font-size: 40px;
+  text-align:center;
+  color: white;
+  background-color:darkgray;
+  font-weight: 800;
+  margin: 0px 0px;
+ padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.chest-workouts {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
+  flex-flow: row wrap;
 }
+
+.chestCard {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
