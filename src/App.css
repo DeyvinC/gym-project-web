@@ -8,12 +8,15 @@
  padding: 10px;
 }
 
-.chest-workouts {
+.workouts {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-flow: row wrap;
+  padding-left: 8px;
+  padding-right: 8px;
 }
+
 
 .chestCard {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

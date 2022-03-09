@@ -1,19 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Card } from 'antd'
 import { workoutContext } from '../App';
 import '../App.css'
 
 const { Meta } = Card
 
-function GetWorkouts() {
+function GetBackWorkouts() {
 
   const { workoutList } = useContext(workoutContext)
-  const chestWorkouts = workoutList?.filter((workout) => workout.type === 'chest');
+  const backWorkouts = workoutList?.filter((workout) => workout.type === 'back');
   return (
-    <section className="chest-workouts">
-      {!chestWorkouts
+    <section className="workouts">
+      {!backWorkouts
         ? <h3>Loading</h3>
-        : chestWorkouts?.map((workout, i) => {
+        : backWorkouts?.map((workout, i) => {
 
           return <Card
             key={i}
@@ -41,4 +41,4 @@ function GetWorkouts() {
 
 }
 
-export default GetWorkouts;
+export default GetBackWorkouts;

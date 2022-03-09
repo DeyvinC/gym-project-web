@@ -2,7 +2,8 @@ import { useEffect, useState, createContext } from 'react';
 import './App.css';
 import { Button, PageHeader } from 'antd';
 
-import GetWorkouts from './components/Workouts';
+import GetWorkouts from './components/Chest';
+import GetBackWorkouts from './components/Back';
 export const workoutContext = createContext('');
 
 
@@ -26,8 +27,8 @@ function App() {
     className="header"
     title="Fitness Guide"
    />
-  
     <GetWorkouts /> 
+    <GetBackWorkouts />
     </div>
 
     </workoutContext.Provider>
