@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createContext } from 'react'
 
 import { Button, PageHeader } from 'antd';
 import ChestWorkouts from '../components/ChestWorkouts';
-import BackWorkouts from './../components/Back';
-import BicepWorkouts from './../components/Bicep';
-import TricepWorkouts from './../components/Tricep';
-import LegWorkouts from './../components/Leg';
+// import BackWorkouts from '../components/BackWorkouts';
+// import BicepWorkouts from './../components/Bicep';
+// import TricepWorkouts from './../components/Tricep';
+// import LegWorkouts from './../components/Leg';
+import { workoutContext } from '../App';
+import BackWorkouts from '../components/BackWorkouts';
+import BicepWorkouts from '../components/BicepWorkouts';
+import TricepWorkouts from '../components/TricepWorkouts';
+import LegWorkouts from '../components/LegWorkouts';
 
 export default function AllWorkouts() {
-    const [completed, setCompleted] = useState(false);
-    const [home, setHome] = useState(true)
     const [workoutList, setWorkoutList] = useState();
 
     useEffect(() => {
@@ -24,7 +27,7 @@ export default function AllWorkouts() {
                 setWorkoutList(data)
             })
             .catch(err => console.error(err))
-    }, [completed]);
+    }, []);
 
     return (
         <div>
@@ -34,26 +37,16 @@ export default function AllWorkouts() {
                 title="Fitness Guide"
                 extra={[
                     <Button onClick={() => {
-                        setCompleted(!completed)
-                        setHome(!home)
                     }}>Completed Workouts</Button>
                 ]}
             />
-
-            <section className='workout-list'>
-                {workoutList?.map(eachWorkout => {
-                    
-                    return (
-                        <>
-                            <ChestWorkouts eachWorkout={eachWorkout} />
-                        </>
-                    )
-                })}
-
+             <workoutContext.Provider value={{ workoutList, setWorkoutList }}> 
+                <ChestWorkouts />
+                <BackWorkouts/>
                 <BicepWorkouts />
                 <TricepWorkouts />
-                <LegWorkouts /> 
-            </section>
+                <LegWorkouts />
+            </workoutContext.Provider>
         </div>
 
     )

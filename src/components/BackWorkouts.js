@@ -1,3 +1,4 @@
+
 import React, { useContext } from "react";
 import { Card, Button } from 'antd'
 import { workoutContext } from '../App';
@@ -8,12 +9,12 @@ const { Meta } = Card
 function BackWorkouts() {
 
   const { workoutList } = useContext(workoutContext)
-  const backWorkouts = workoutList?.filter((workout) => workout.type === 'back');
+  const BackWorkouts = workoutList?.filter((workout) => workout.type === 'back');
   return (
     <section className="workouts">
-      {!backWorkouts
+      {!BackWorkouts
         ? <h3>Loading</h3>
-        : backWorkouts?.map((workout, i) => {
+        : BackWorkouts?.map((workout, i) => {
 
           return <Card
             key={i}

@@ -6,7 +6,6 @@ import AllWorkouts from './scenes/AllWorkouts';
 import CompletedWorkouts from './scenes/CompletedWorkouts';
 
 export const workoutContext = createContext('');
-
 function App() {
 
   // const [completed, setCompleted] = useState(false);
