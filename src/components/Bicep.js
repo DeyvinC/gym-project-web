@@ -5,15 +5,15 @@ import '../App.css'
 
 const { Meta } = Card
 
-function BackWorkouts() {
+function BicepWorkouts() {
 
   const { workoutList } = useContext(workoutContext)
-  const backWorkouts = workoutList?.filter((workout) => workout.type === 'back');
+  const bicepWorkouts = workoutList?.filter((workout) => workout.type === 'bicep');
   return (
     <section className="workouts">
-      {!backWorkouts
+      {!bicepWorkouts
         ? <h3>Loading</h3>
-        : backWorkouts?.map((workout, i) => {
+        : bicepWorkouts?.map((workout, i) => {
 
           return <Card
             key={i}
@@ -30,14 +30,14 @@ function BackWorkouts() {
             <Meta
               title={workout.name}
               description={workout.description}
-            />
+            /> 
             <p>
-              Sets: {workout.sets}
+            Sets: {workout.sets}
             </p>
             <p>
                Reps: {workout.reps}
             </p>
-             <Button>Add to completed workouts</Button>
+            <Button>Add to completed workouts</Button>
           </Card>
         })
       }
@@ -47,4 +47,4 @@ function BackWorkouts() {
 
 }
 
-export default BackWorkouts;
+export default BicepWorkouts;

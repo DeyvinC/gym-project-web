@@ -1,24 +1,23 @@
 import React, { useContext } from "react";
-import { Card } from 'antd'
+import { Card, Button } from 'antd'
 import { workoutContext } from '../App';
 import '../App.css'
 
 const { Meta } = Card
 
-function GetWorkouts() {
+function TricepWorkouts() {
 
   const { workoutList } = useContext(workoutContext)
-  const chestWorkouts = workoutList?.filter((workout) => workout.type === 'chest');
+  const tricepWorkouts = workoutList?.filter((workout) => workout.type === 'tricep');
   return (
     <section className="workouts">
-      {!chestWorkouts
+      {!tricepWorkouts
         ? <h3>Loading</h3>
-        : chestWorkouts?.map((workout, i) => {
+        : tricepWorkouts?.map((workout, i) => {
 
           return <Card
             key={i}
-            className="chestCard"
-            style={{ width: 300 }}
+            className="card"
             cover={
               <img
                 
@@ -31,7 +30,14 @@ function GetWorkouts() {
             <Meta
               title={workout.name}
               description={workout.description}
-            />
+            /> 
+            <p>
+            Sets: {workout.sets}
+            </p>
+            <p>
+               Reps: {workout.reps}
+            </p>
+            <Button>Add to completed workouts</Button>
           </Card>
         })
       }
@@ -41,4 +47,4 @@ function GetWorkouts() {
 
 }
 
-export default GetWorkouts;
+export default TricepWorkouts;

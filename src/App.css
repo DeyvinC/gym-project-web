@@ -1,8 +1,8 @@
 .header {
-  font-size: 40px;
+  font-size: 68px;
   text-align:center;
-  color: white;
-  background-color:darkgray;
+  color: black;
+  text-shadow: 5px 5px 5px grey;
   font-weight: 800;
   margin: 0px 0px;
  padding: 10px;
@@ -17,8 +17,17 @@
   padding-right: 8px;
 }
 
+.workout-list{
+  max-width: 500px;
+  margin: 10px auto; 
+  max-height: auto;
+  display: flex;
+}
 
-.chestCard {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.card {
+  box-shadow: 4px 8px 10px 4px rgba(0,0,0,0.2);
+  width: 300px;
+  height: auto;
+  margin-top: 10px;
 }
 

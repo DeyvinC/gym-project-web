@@ -1,37 +1,25 @@
-import { useEffect, useState, createContext } from 'react';
+import { createContext } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Button, PageHeader } from 'antd';
+import AllWorkouts from './scenes/AllWorkouts';
 
-import GetWorkouts from './components/Chest';
-import GetBackWorkouts from './components/Back';
+import CompletedWorkouts from './scenes/CompletedWorkouts';
+
 export const workoutContext = createContext('');
 
-
 function App() {
-  const [ workoutList, setWorkoutList ] = useState();
-    useEffect(() => {
-        //load data from API
-        // fetch('https://gym-project-dc.uc.r.appspot.com')
-        fetch('http://localhost:3001/workout')
-          .then(response => response.json())
-          .then(data => {
-            console.log(data)
-            setWorkoutList(data)
-          })
-          .catch(err => console.error(err))
-    }, []);
-  return (
-    <workoutContext.Provider value={{workoutList, setWorkoutList}}>
-    <div>
-    <PageHeader
-    className="header"
-    title="Fitness Guide"
-   />
-    <GetWorkouts /> 
-    <GetBackWorkouts />
-    </div>
 
-    </workoutContext.Provider>
+  // const [completed, setCompleted] = useState(false);
+  // const [home, setHome] = useState(true)
+
+  return (
+    // <workoutContext.Provider value={{ workoutList, setWorkoutList }}>
+
+    <Routes>
+      <Route path='/' element={<AllWorkouts />} />
+      <Route path='/completed' element={<CompletedWorkouts />} />
+    </Routes>
+    // </workoutContext.Provider>
   );
 }
 
