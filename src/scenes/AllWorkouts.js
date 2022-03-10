@@ -1,19 +1,18 @@
-import React, { useState, useEffect, createContext } from 'react'
+import React, { useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 import { Button, PageHeader } from 'antd';
 import ChestWorkouts from '../components/ChestWorkouts';
-// import BackWorkouts from '../components/BackWorkouts';
-// import BicepWorkouts from './../components/Bicep';
-// import TricepWorkouts from './../components/Tricep';
-// import LegWorkouts from './../components/Leg';
-import { workoutContext } from '../App';
 import BackWorkouts from '../components/BackWorkouts';
 import BicepWorkouts from '../components/BicepWorkouts';
 import TricepWorkouts from '../components/TricepWorkouts';
 import LegWorkouts from '../components/LegWorkouts';
 
+import { workoutContext } from '../App';
+
 export default function AllWorkouts() {
     const [workoutList, setWorkoutList] = useState();
+    const navigate = useNavigate();
 
     useEffect(() => {
         // fetch('https://gym-project-dc.uc.r.appspot.com')
@@ -29,6 +28,10 @@ export default function AllWorkouts() {
             .catch(err => console.error(err))
     }, []);
 
+    const handleOnclick = () => {
+        navigate('/completed')
+    }
+
     return (
         <div>
 
@@ -36,8 +39,7 @@ export default function AllWorkouts() {
                 className="header"
                 title="Fitness Guide"
                 extra={[
-                    <Button onClick={() => {
-                    }}>Completed Workouts</Button>
+                    <Button onClick={handleOnclick}>Completed Workouts</Button>
                 ]}
             />
              <workoutContext.Provider value={{ workoutList, setWorkoutList }}> 
