@@ -9,7 +9,6 @@ export const workoutContext = createContext('');
 function App() {
 
   return (
-  
     <Routes>
       <Route path='/' element={<AllWorkouts />} />
       <Route path='/completed' element={<CompletedWorkouts />} />

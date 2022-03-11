@@ -10,7 +10,7 @@ function TricepWorkouts() {
   const { workoutList } = useContext(workoutContext)
   const tricepWorkouts = workoutList?.filter((workout) => workout.type === 'tricep');
   return (
-    <section className="workouts">
+    <main className="workouts">
       {!tricepWorkouts
         ? <h3>Loading</h3>
         : tricepWorkouts?.map((workout, i) => {
@@ -20,28 +20,30 @@ function TricepWorkouts() {
             className="card"
             cover={
               <img
-                
+                className="workout-img"
                 alt="example"
                 src={workout?.image}
                 style={{width: "100%"}}
               />
             }
           >
-            <Meta
-              title={workout.name}
-              description={workout.description}
-            /> 
-            <p>
-            Sets: {workout.sets}
-            </p>
-            <p>
-               Reps: {workout.reps}
-            </p>
-            <Button>Add to completed workouts</Button>
-          </Card>
+            <section>
+              <Meta
+                title={workout.name}
+                description={workout.description}
+              /> 
+              <p>
+                Sets: {workout.sets}
+              </p>
+              <p>
+                Reps: {workout.reps}
+              </p>
+              <Button>Add to completed workouts</Button>
+            </section>
+            </Card>
         })
       }
-    </section>
+    </main>
   )
 
 

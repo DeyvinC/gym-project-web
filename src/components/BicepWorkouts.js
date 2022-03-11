@@ -20,7 +20,7 @@ function BicepWorkouts() {
             className="card"
             cover={
               <img
-                
+                className="workout-img"
                 alt="example"
                 src={workout?.image}
                 style={{width: "100%"}}

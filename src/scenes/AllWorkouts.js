@@ -12,11 +12,11 @@ import { workoutContext } from '../App';
 
 export default function AllWorkouts() {
     const [workoutList, setWorkoutList] = useState();
+
     const navigate = useNavigate();
 
     useEffect(() => {
-        // fetch('https://gym-project-dc.uc.r.appspot.com')
-        fetch(`http://localhost:3001/workout`)
+        fetch('https://gym-project-dc.uc.r.appspot.com/workout')
             .then(response => response.json())
             .then(data => {
                 data.sort((a,b) => {
@@ -24,9 +24,12 @@ export default function AllWorkouts() {
                     if(a.type > b.type) {return 1}
                 })
                 setWorkoutList(data)
+                console.log(setWorkoutList)
             })
             .catch(err => console.error(err))
     }, []);
+
+
 
     const handleOnclick = () => {
         navigate('/completed')
@@ -42,12 +45,14 @@ export default function AllWorkouts() {
                     <Button onClick={handleOnclick}>Completed Workouts</Button>
                 ]}
             />
+                
+                
              <workoutContext.Provider value={{ workoutList, setWorkoutList }}> 
                 <ChestWorkouts />
                 <BackWorkouts/>
                 <BicepWorkouts />
                 <TricepWorkouts />
-                <LegWorkouts />
+                <LegWorkouts />   
             </workoutContext.Provider>
         </div>
 
