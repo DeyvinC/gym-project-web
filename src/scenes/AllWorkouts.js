@@ -36,15 +36,12 @@ export default function AllWorkouts() {
     }
 
     return (
-        <div>
-
-            <PageHeader
-                className="header"
-                title="Fitness Guide"
-                extra={[
-                    <Button onClick={handleOnclick}>Completed Workouts</Button>
-                ]}
-            />
+        <main>
+            <section className='hero-img'>
+                <h1 className='header'>Body Geek</h1>
+                <Button  className='completedWorkoutBtn' onClick={handleOnclick}>Completed Workouts</Button>
+            </section>
+            
                 
                 
              <workoutContext.Provider value={{ workoutList, setWorkoutList }}> 
@@ -54,7 +51,7 @@ export default function AllWorkouts() {
                 <TricepWorkouts />
                 <LegWorkouts />   
             </workoutContext.Provider>
-        </div>
+        </main>
 
     )
 }

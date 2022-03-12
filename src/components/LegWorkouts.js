@@ -40,17 +40,17 @@ function LegWorkouts() {
               />
             }
             >
-            <Meta
-              title={workout.name}
-              description={workout.description}
-            /> 
-            <p>
-              Sets: {workout.sets}
-            </p>
-            <p>
-               Reps: {workout.reps}
-            </p>
-            <Button onClick={() => handleAdded(workout)} className="card-button">Add to completed workouts</Button>
+           <div>
+              <p> {workout.name} </p>
+              <p> {workout.description} </p> 
+              <p> Sets: {workout.sets} </p>
+              <p> Reps: {workout.reps}</p>
+            </div> 
+            <div className="card-button">
+              <Button 
+                onClick={() => handleAdded(workout)}>Add to completed workouts
+              </Button>
+            </div>
           </Card>
         })
       }
