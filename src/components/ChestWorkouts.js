@@ -28,11 +28,11 @@ function ChestWorkouts() {
             }
           >
           <div>
-            <p> {workout.name} </p>
-            <p> {workout.description} </p> 
-            <p> Sets: {workout.sets} </p>
-            <p> Reps: {workout.reps}</p>
-          </div>  
+            <p> <strong> {workout.name} </strong> </p>
+            <p> <strong>How To: </strong> {workout.description} </p> 
+            <p> <strong>Sets: </strong> {workout.sets} </p>
+            <p> <strong>Reps: </strong> {workout.reps} </p>
+          </div> 
           <div className="card-button">
             <Button>Add to completed workouts</Button>
           </div>

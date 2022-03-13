@@ -39,16 +39,21 @@ export default function AllWorkouts() {
         <main>
             <section className='hero-img'>
                 <h1 className='header'>Body Geek</h1>
-                <Button  className='completedWorkoutBtn' onClick={handleOnclick}>Completed Workouts</Button>
+                <button  className='completedWorkoutBtn' onClick={handleOnclick}>Completed Workouts</button>
             </section>
             
                 
                 
              <workoutContext.Provider value={{ workoutList, setWorkoutList }}> 
+                <h2 className='h2' >Chest</h2>
                 <ChestWorkouts />
+                <h2 className='h2' >Back</h2>
                 <BackWorkouts/>
+                <h2 className='h2' >Biceps</h2>
                 <BicepWorkouts />
+                <h2 className='h2' >Triceps</h2>
                 <TricepWorkouts />
+                <h2 className='h2' >Legs</h2>
                 <LegWorkouts />   
             </workoutContext.Provider>
         </main>
