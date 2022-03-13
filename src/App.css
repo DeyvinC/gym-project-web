@@ -10,9 +10,21 @@
   padding: 200px;
   
 }
+.completed-page{
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+.completed-header{
+  color: rgb(226, 152, 122);
+}
+
 .h2{
-  color: white;
+  color: rgb(226, 152, 122);
+  text-shadow: 2px 2px 2px white;
   font-size: 60px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: black;
   padding: 30px;
   margin: 0px 0px;
@@ -62,11 +74,13 @@
 .card-button{
   position: absolute;
   bottom: 10px;
+  background-color: black;
 }
 .completedWorkoutBtn {
   color: black;
-  width: 200px;
-  height: 80px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  width: 150px;
+  height: 60px;
   border-radius: 15px 15px 15px 15px;
   margin: 10px 10px; 
   float: right;

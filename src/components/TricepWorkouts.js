@@ -3,7 +3,6 @@ import { Card, Button } from 'antd'
 import { workoutContext } from '../App';
 import '../App.css'
 
-const { Meta } = Card
 
 function TricepWorkouts() {
 
@@ -18,7 +17,7 @@ function TricepWorkouts() {
           return <Card
             key={i}
             className="card"
-            cover={
+            cover={ 
               <img
                 className="workout-img"
                 alt="example"

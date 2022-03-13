@@ -4,8 +4,6 @@ import { Card, Button } from 'antd'
 import { workoutContext } from '../App';
 import '../App.css'
 
-const { Meta } = Card
-
 function BackWorkouts() {
 
   const { workoutList } = useContext(workoutContext)

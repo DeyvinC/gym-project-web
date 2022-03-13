@@ -12,10 +12,10 @@ function CompletedWorkouts() {
     }
 
     return (
-        <>
-        <h1>Completed Workouts</h1>
+        <section className="completed-page">
+        <h1 className="completed-header">Completed Workouts</h1>
         <Button onClick={handleOnclick}> Back To Workouts</Button>
-        </>
+        </section>
     )
 }
 
