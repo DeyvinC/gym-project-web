@@ -8,15 +8,17 @@ function LegWorkouts() {
   const { workoutList } = useContext(workoutContext)
   const legWorkouts = workoutList?.filter((workout) => workout.type === 'leg');
 
-  const handleAdded = (selectedWorkout) => {
-      fetch('http://localhost:3001/history', {
+  const handleAdded = (workout) => {
+    console.log('clicked')
+    console.log(workout)
+      fetch(`http://localhost:3001/history`, {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(selectedWorkout)
-      }).then(data => selectedWorkout(data))
-      .catch(err => console.error(err))
+        body: JSON.stringify(workout)
+      }).then(data => console.log(data))
+      .catch(err => console.log(err))
 
   }
 
@@ -46,7 +48,8 @@ function LegWorkouts() {
           </div> 
             <div className="card-button">
               <Button 
-                onClick={() => handleAdded(workout)}>Add to completed workouts
+                onClick={() => handleAdded(workout)}>
+                  Add to completed workouts
               </Button>
             </div>
           </Card>
