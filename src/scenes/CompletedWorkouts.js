@@ -5,7 +5,7 @@ import "../App.css"
 
 function CompletedWorkouts() {
     const [completedWorkouts, setCompltedWorkouts] = useState();
-    
+
     useEffect(() => {
         fetch('http://localhost:3001/history')
             .then(response => response.json())
@@ -25,6 +25,7 @@ function CompletedWorkouts() {
         <section className="completed-page">
             <h1 className="completed-header">Completed Workouts</h1>
             {!completedWorkouts ? <h2>Loading...</h2>
+
                 : (
                     <ul>
                         {completedWorkouts.map((workout, i) => {
@@ -45,7 +46,9 @@ function CompletedWorkouts() {
                                         <p> <strong>How To: </strong> {workout.description} </p>
                                         <p> <strong>Sets: </strong> {workout.sets} </p>
                                         <p> <strong>Reps: </strong> {workout.reps} </p>
-                                        <p> <strong>Done on: </strong> {(workout.timestamp._seconds)} </p>
+                                        <p> <strong>Done on: </strong> {(Date(workout.timestamp._seconds).slice(0, 15))} 
+                                            
+                                        </p>
                                     </div>
                                 </Card>
                             )

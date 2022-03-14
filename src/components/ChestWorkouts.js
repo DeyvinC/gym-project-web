@@ -1,40 +1,54 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 import { Card, Button } from 'antd'
 import { workoutContext } from '../App';
 import '../App.css'
 
 function ChestWorkouts() {
-
   const { workoutList } = useContext(workoutContext)
+  
+  const handleAdded = (workout) => {
+      fetch('http://localhost:3001/history', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(workout)
+      }).then(data => console.log(data))
+      .catch(err => console.log(err))
+
+  }
+
   const ChestWorkouts = workoutList?.filter((workout) => workout.type === 'chest');
   return (
-    <section className="workouts">
+    <section className='workouts'>
       {!ChestWorkouts
         ? <h3>Loading</h3>
         : ChestWorkouts?.map((workout, i) => {
 
           return <Card
-            key={i}
-            className="card"
-            cover={
-              <img
-                className="workout-img"
-                alt="example"
-                src={workout?.image}
-                style={{width: "100%"}}
-              />
-            }
+          key={i}
+          className='card'
+          cover={
+            <img
+            className='workout-img'
+            alt='Different types of chest workouts'
+            src={workout?.image}
+            />
+          }
           >
-          <div>
-            <p> <strong> {workout.name} </strong> </p>
-            <p> <strong>How To: </strong> {workout.description} </p> 
-            <p> <strong>Sets: </strong> {workout.sets} </p>
-            <p> <strong>Reps: </strong> {workout.reps} </p>
-          </div> 
-          <div className="card-button">
-            <Button>Add to completed workouts</Button>
+         <div>
+          <p> <strong> {workout.name} </strong> </p>
+          <p> <strong>How To: </strong> {workout.description} </p> 
+          <p> <strong>Sets: </strong> {workout.sets} </p>
+          <p> <strong>Reps: </strong> {workout.reps} </p>
+        </div> 
+          <div className='card-button'>
+            <Button 
+              onClick={() => handleAdded(workout)}>
+                Add to completed workouts
+            </Button>
           </div>
-          </Card>
+        </Card>
         })
       }
     </section>

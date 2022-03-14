@@ -1,17 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 import { Card, Button } from 'antd'
 import { workoutContext } from '../App';
 import '../App.css'
 
 function LegWorkouts() {
-
   const { workoutList } = useContext(workoutContext)
+  
   const legWorkouts = workoutList?.filter((workout) => workout.type === 'leg');
 
   const handleAdded = (workout) => {
-    console.log('clicked')
-    console.log(workout)
-      fetch(`http://localhost:3001/history`, {
+      fetch('http://localhost:3001/history', {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json'
@@ -24,19 +22,18 @@ function LegWorkouts() {
 
 
   return (
-    <section className="workouts">
+    <section className='workouts'>
       {!legWorkouts
         ? <h3>Loading</h3>
         : legWorkouts?.map((workout, i) => {
           return <Card
             key={i}
-            className="card"
+            className='card'
             cover={
               <img
-              className="workout-img"
-              alt="example"
+              className='workout-img'
+              alt='Different types of leg workouts'
               src={workout?.image}
-              // style={{width: "100%"}}
               />
             }
             >
@@ -46,7 +43,7 @@ function LegWorkouts() {
             <p> <strong>Sets: </strong> {workout.sets} </p>
             <p> <strong>Reps: </strong> {workout.reps} </p>
           </div> 
-            <div className="card-button">
+            <div className='card-button'>
               <Button 
                 onClick={() => handleAdded(workout)}>
                   Add to completed workouts

@@ -1,28 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 import { Card, Button } from 'antd'
 import { workoutContext } from '../App';
 import '../App.css'
 
 
 function TricepWorkouts() {
-
   const { workoutList } = useContext(workoutContext)
+
+  const handleAdded = (workout) => {
+    fetch('http://localhost:3001/history', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(workout)
+    }).then(data => console.log(data))
+    .catch(err => console.log(err))
+
+}
+
   const tricepWorkouts = workoutList?.filter((workout) => workout.type === 'tricep');
   return (
-    <main className="workouts">
+    <main className='workouts'>
       {!tricepWorkouts
         ? <h3>Loading</h3>
         : tricepWorkouts?.map((workout, i) => {
 
           return <Card
             key={i}
-            className="card"
+            className='card'
             cover={ 
               <img
-                className="workout-img"
-                alt="example"
+                className='workout-img'
+                alt='Different type of tricep workouts'
                 src={workout?.image}
-                style={{width: "100%"}}
               />
             }
           >
@@ -32,8 +43,11 @@ function TricepWorkouts() {
             <p> <strong>Sets: </strong> {workout.sets} </p>
             <p> <strong>Reps: </strong> {workout.reps} </p>
           </div>  
-            <div className="card-button">
-              <Button>Add to completed workouts</Button>
+            <div className='card-button'>
+            <Button 
+                onClick={() => handleAdded(workout)}>
+                  Add to completed workouts
+              </Button>
             </div>  
             </Card>
         })
