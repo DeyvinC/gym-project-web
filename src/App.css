@@ -10,33 +10,12 @@
   padding: 200px;
   
 }
-.completed-page{
-  background-color: black;
-  width: 100%;
-  height: 100%;
-}
-
-.completed-header{
-  color: rgb(226, 152, 122);
-  margin: 0px 0px;
-}
-
-.h2{
-  color: rgb(226, 152, 122);
-  text-shadow: 2px 2px 2px white;
-  font-size: 60px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: black;
-  padding: 30px;
-  margin: 0px 0px;
- padding-left: 80px;
-}
 
 .hero-img {
   background-image: url('gymPhoto6.jpeg');
   width: 100%;
   height: 600px;
-
+  
 }
 
 .workouts {
@@ -67,14 +46,13 @@
   background-color: white;
 }
 
-.buttonToGoHome {
-  size: 10px;
-}
 
 .card-button{
   position: absolute;
-  bottom: 10px;
-  background-color: black;
+  background-color: darkgreen;
+  width: 180px;
+  height: 25px;
+  bottom: 5px;
 }
 .completedWorkoutBtn {
   color: black;
@@ -86,3 +64,61 @@
   float: right;
 }
 
+.h2{
+  color: rgb(226, 152, 122);
+  text-shadow: 2px 2px 2px white;
+  font-size: 60px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: black;
+  padding: 30px;
+  margin: 0px 0px;
+ padding-left: 80px;
+}
+
+.completed-page{
+  background-color: black;
+  margin: 0px;   
+}
+
+.completed-workouts{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-flow: row wrap;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.completed-card{
+  box-shadow: 10px 10px 10px 10px rgb(132, 136, 143);
+  width: 300px;
+  height: auto;
+  margin-top: 10px;
+  padding: 30px;
+  position: relative;
+  color: black;
+  background-color: white;
+}
+.completed-header{
+  font-size: 80px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-shadow: 1px 1px 1px white;
+  color: rgb(132, 136, 143);
+  margin-top: 0px;
+  text-align: center;
+}
+
+.completed-workout-ul {
+  margin: 150px;
+  display: flex;
+  gap: 50px;
+}
+
+
+.buttonToGoHome {
+  background-color: red;
+  size: 30px;
+  display: flex;
+  float: right;
+  margin: 30px 30px ;
+}

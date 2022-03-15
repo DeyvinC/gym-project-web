@@ -44,12 +44,11 @@ function BicepWorkouts() {
             <p> <strong>Sets: </strong> {workout.sets} </p>
             <p> <strong>Reps: </strong> {workout.reps} </p>
           </div>
-          <div className='card-button'>
             <Button 
+            className='card-button'
               onClick={() => handleAdded(workout)}>
                 Add to completed workouts
             </Button>
-          </div>
           </Card>
         })
       }

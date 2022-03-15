@@ -41,13 +41,12 @@ function BackWorkouts() {
             <p> <strong>How To: </strong> {workout.description} </p> 
             <p> <strong>Sets: </strong> {workout.sets} </p>
             <p> <strong>Reps: </strong> {workout.reps} </p>
-          </div>
-          <div className='card-button'>
+          </div>          
            <Button 
+            className='card-button'
              onClick={() => handleAdded(workout)}>
                 Add to completed workouts
             </Button>
-          </div>
           </Card>
         })
       }
