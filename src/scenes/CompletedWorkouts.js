@@ -3,22 +3,21 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import "../App.css"
 
-function CompletedWorkouts() {
-    const [completedWorkouts, setCompltedWorkouts] = useState();
-
+function CompletedWorkouts({userId}) {
+    const [completedWorkouts, setCompltedWorkouts] = useState([]);
+    
     useEffect(() => {
-        fetch('http://localhost:3001/history')
+        fetch(`http://localhost:3001/history/${userId}`)
             .then(response => response.json())
             .then((data) => setCompltedWorkouts(data))
             .catch(err => console.error(err))
-    }, [])
-
+    }, [ userId])
 
     const navigate = useNavigate();
 
 
     const handleOnclick = () => {
-        navigate('/')
+        navigate('/workouts')
     }
 
     return (

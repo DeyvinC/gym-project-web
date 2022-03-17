@@ -1,20 +1,22 @@
 import React, { useContext } from 'react';
 import { Card, Button } from 'antd'
-import { workoutContext } from '../App';
+import { WorkoutContext } from '../App';
 import '../App.css'
 
 
-function TricepWorkouts() {
-  const { workoutList } = useContext(workoutContext)
-
+function TricepWorkouts({ userId }) {
+  const { workoutList  } = useContext(WorkoutContext)
+  console.log(userId)
   const handleAdded = (workout) => {
-    fetch('http://localhost:3001/history', {
+    console.log(workout)
+    fetch(`http://localhost:3001/history/${userId}`, {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(workout)
-    }).then(data => console.log(data))
+    })
+    .then(data => console.log(data))
     .catch(err => console.log(err))
 
 }

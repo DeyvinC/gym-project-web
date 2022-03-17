@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Card, Button } from 'antd'
-import { workoutContext } from '../App';
+import { WorkoutContext } from '../App';
 import '../App.css'
 
 function ChestWorkouts() {
-  const { workoutList } = useContext(workoutContext)
+  const { workoutList } = useContext(WorkoutContext)
   
   const handleAdded = (workout) => {
       fetch('http://localhost:3001/history', {

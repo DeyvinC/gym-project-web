@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Card, Button } from 'antd'
-import { workoutContext } from '../App';
+import { WorkoutContext } from '../App';
 import '../App.css'
 
 function LegWorkouts() {
-  const { workoutList } = useContext(workoutContext)
+  const { workoutList } = useContext(WorkoutContext)
   
   const legWorkouts = workoutList?.filter((workout) => workout.type === 'leg');
 

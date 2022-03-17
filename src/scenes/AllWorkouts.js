@@ -7,9 +7,9 @@ import BicepWorkouts from '../components/BicepWorkouts';
 import TricepWorkouts from '../components/TricepWorkouts';
 import LegWorkouts from '../components/LegWorkouts';
 
-import { workoutContext } from '../App';
+import { WorkoutContext } from '../App';
 
-export default function AllWorkouts() {
+export default function AllWorkouts({setToken, userId}) {
     const [workoutList, setWorkoutList] = useState();
 
     const navigate = useNavigate();
@@ -34,16 +34,22 @@ export default function AllWorkouts() {
         navigate('/completed')
     }
 
+    const handleLogout = () => {
+        setToken(null)
+        localStorage.clear();
+    }
+
     return (
         <main>
             <section className='hero-img'>
+                <button onClick={handleLogout}>Sign Out</button>
                 <h1 className='header'>Body Geek</h1>
                 <button  className='completedWorkoutBtn' onClick={handleOnclick}>Completed Workouts</button>
             </section>
             
                 
                 
-             <workoutContext.Provider value={{ workoutList, setWorkoutList }}> 
+             <WorkoutContext.Provider value={{ workoutList, setWorkoutList }}> 
                 <h2 className='h2' >Chest</h2>
                 <ChestWorkouts />
                 <h2 className='h2' >Back</h2>
@@ -51,10 +57,10 @@ export default function AllWorkouts() {
                 <h2 className='h2' >Biceps</h2>
                 <BicepWorkouts />
                 <h2 className='h2' >Triceps</h2>
-                <TricepWorkouts />
+                <TricepWorkouts userId={userId} />
                 <h2 className='h2' >Legs</h2>
                 <LegWorkouts />   
-            </workoutContext.Provider>
+            </WorkoutContext.Provider>
         </main>
 
     )
