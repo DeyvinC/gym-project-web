@@ -42,7 +42,7 @@ export default function AllWorkouts({setToken, userId}) {
     return (
         <main>
             <section className='hero-img'>
-                <button onClick={handleLogout}>Sign Out</button>
+                <button className='sign-out-button' onClick={handleLogout}>Sign Out</button>
                 <h1 className='header'>Body Geek</h1>
                 <button  className='completedWorkoutBtn' onClick={handleOnclick}>Completed Workouts</button>
             </section>
@@ -51,15 +51,15 @@ export default function AllWorkouts({setToken, userId}) {
                 
              <WorkoutContext.Provider value={{ workoutList, setWorkoutList }}> 
                 <h2 className='h2' >Chest</h2>
-                <ChestWorkouts />
+                <ChestWorkouts userId={userId} />
                 <h2 className='h2' >Back</h2>
-                <BackWorkouts/>
+                <BackWorkouts userId={userId}/>
                 <h2 className='h2' >Biceps</h2>
-                <BicepWorkouts />
+                <BicepWorkouts userId={userId} />
                 <h2 className='h2' >Triceps</h2>
                 <TricepWorkouts userId={userId} />
                 <h2 className='h2' >Legs</h2>
-                <LegWorkouts />   
+                <LegWorkouts userId={userId} />   
             </WorkoutContext.Provider>
         </main>
 

@@ -3,22 +3,19 @@ import { Card, Button } from 'antd'
 import { WorkoutContext } from '../App';
 import '../App.css'
 
-function BicepWorkouts() {
-  const { workoutList } = useContext(WorkoutContext)
-
+function BicepWorkouts({userId}) {
+  const { workoutList  } = useContext(WorkoutContext)
   const handleAdded = (workout) => {
-    console.log('clicked')
-    console.log(workout)
-      fetch('http://localhost:3001/history', {
-        method: 'POST', 
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(workout)
-      }).then(data => console.log(data))
-      .catch(err => console.log(err))
-
-  }
+    fetch(`http://localhost:3001/history/${userId}`, {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(workout)
+    })
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+}
 
   const bicepWorkouts = workoutList?.filter((workout) => workout.type === 'bicep');
   return (

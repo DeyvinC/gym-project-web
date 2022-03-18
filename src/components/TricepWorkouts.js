@@ -6,9 +6,7 @@ import '../App.css'
 
 function TricepWorkouts({ userId }) {
   const { workoutList  } = useContext(WorkoutContext)
-  console.log(userId)
   const handleAdded = (workout) => {
-    console.log(workout)
     fetch(`http://localhost:3001/history/${userId}`, {
       method: 'POST', 
       headers: {
@@ -18,7 +16,6 @@ function TricepWorkouts({ userId }) {
     })
     .then(data => console.log(data))
     .catch(err => console.log(err))
-
 }
 
   const tricepWorkouts = workoutList?.filter((workout) => workout.type === 'tricep');

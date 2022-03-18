@@ -3,20 +3,19 @@ import { Card, Button } from 'antd'
 import { WorkoutContext } from '../App';
 import '../App.css'
 
-function ChestWorkouts() {
-  const { workoutList } = useContext(WorkoutContext)
-  
+function ChestWorkouts({userId}) {
+  const { workoutList  } = useContext(WorkoutContext)
   const handleAdded = (workout) => {
-      fetch('http://localhost:3001/history', {
-        method: 'POST', 
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(workout)
-      }).then(data => console.log(data))
-      .catch(err => console.log(err))
-
-  }
+    fetch(`http://localhost:3001/history/${userId}`, {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(workout)
+    })
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+}
 
   const ChestWorkouts = workoutList?.filter((workout) => workout.type === 'chest');
   return (

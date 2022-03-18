@@ -21,14 +21,14 @@ function CompletedWorkouts({userId}) {
     }
 
     return (
-        <main className="completed-page">
+        <div className="completed-page">
                 <h1 className="completed-header">Completed Workouts</h1>
                 <Button className='buttonToGoHome' onClick={handleOnclick}> Back To Workouts</Button>
                 <section className='completed-workouts'>
                 {!completedWorkouts ? <h2>Loading...</h2>
 
                     : (
-                        <ul className='completed-workout-ul'>
+                        <>
                             {completedWorkouts.map((workout, i) => {
                                 return (
                                     <Card
@@ -54,10 +54,10 @@ function CompletedWorkouts({userId}) {
                                     </Card>
                                 )
                             })}
-                        </ul>
+                        </>
                     )}
                     </section>
-        </main>
+        </div>
     )
 }
 

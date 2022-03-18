@@ -1,7 +1,7 @@
 import { useState } from "react";
 import bcrypt from "bcryptjs";
 import { useNavigate } from "react-router-dom";
-import '../App.css'
+import '../styles/signup.css'
 
 const salt = "$2b$10$e837LrHh7dAU9M0.ky74IO"
 
@@ -31,25 +31,24 @@ export default function SignUp({setToken, setIsUser, setUserId}){
     }
 
     return (
-        <div>
-            <div>
+        <div className='signup-wrapper'>
+            <h1 className='title'>Body Geek</h1>
+            <div className='form-wrapper'>
                 <h2>Sign Up</h2>
                 <form onSubmit={handleSubmit}>
-                <div>
+                <div className='email'>
                     <label> Email:
                         <input type="email" value={email} onChange={event => setEmail(event.target.value)} />
                     </label>
                 </div> 
-                <div>
+                <div className='password'>
                     <label> Password:
                         <input type="password" value={password} onChange={event => setPassword(event.target.value)} />
                     </label> 
                 </div>
-                <div>
-                    <input type="submit" value="Sign Up" />
-                </div>
+                    <input type="submit" value="Sign Up" />               
                 </form>
-                <div>
+                <div className='login'>
                 <button onClick={() => setIsUser(true)}>
                 Login 
                 </button>
