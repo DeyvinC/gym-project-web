@@ -7,7 +7,7 @@ import '../App.css'
 function TricepWorkouts({ userId }) {
   const { workoutList  } = useContext(WorkoutContext)
   const handleAdded = (workout) => {
-    fetch(`http://localhost:3001/history/${userId}`, {
+    fetch(`https://gym-project-dc.uc.r.appspot.com/history/${userId}`, {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json'

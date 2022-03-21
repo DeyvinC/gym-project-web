@@ -1,13 +1,13 @@
 import { Button, Card } from "antd";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
-import "../App.css"
+import "../styles/completedWorkouts.css"
 
 function CompletedWorkouts({userId}) {
     const [completedWorkouts, setCompltedWorkouts] = useState([]);
     
     useEffect(() => {
-        fetch(`http://localhost:3001/history/${userId}`)
+        fetch(`https://gym-project-dc.uc.r.appspot.com/history/${userId}`)
             .then(response => response.json())
             .then((data) => setCompltedWorkouts(data))
             .catch(err => console.error(err))

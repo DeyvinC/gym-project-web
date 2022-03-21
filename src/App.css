@@ -10,21 +10,23 @@ body {
   text-shadow: 1px 1px 1px white;
   font-weight: 800;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  word-spacing: 325px;
+  word-spacing: 350px;
   margin: 0px 0px;
-  margin-left: 110px;
+  margin-left: 75px;
   padding: 200px;
   
 }
 
-
+@media only screen and (min-width: 480px){
   .hero-img {
     background-image: url('gymPhoto6.jpeg');
     background-size: cover;
-    width: 100%;
+    max-width: 100%;
     height: 600px;
     
   }
+
+}
 
 
 .workouts {
@@ -87,50 +89,6 @@ body {
  padding-left: 80px;
 }
 
-/* completed workouts page */
-.completed-page{
-  background-color: black;
-  background-size: cover;
-  margin: 0px;
-  height: 100vh;
-  width: 100vw; 
-}
-
-.completed-workouts{
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-flow: row wrap;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.completed-card{
-  box-shadow: 10px 10px 10px 10px rgb(132, 136, 143);
-  width: 300px;
-  height: auto;
-  margin-top: 120px;
-  padding: 30px;
-  position: relative;
-  color: black;
-  background-color: white;
-}
-.completed-header{
-  font-size: 80px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  text-shadow: 1px 1px 1px white;
-  color: rgb(132, 136, 143);
-  margin: 0px;
-  text-align: center;
-}
-
-.completed-workout-ul {
-  margin: 150px;
-  display: flex;
-  gap: 50px;
-}
-
-
 .buttonToGoHome {
   background-color: red;
   size: 40px;
@@ -148,4 +106,8 @@ body {
   height: 40px;
   margin-top: 30px;
   margin-right: 30px;
+}
+
+.footer {
+  color: white 
 }

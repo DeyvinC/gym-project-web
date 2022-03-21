@@ -13,7 +13,7 @@ export default function SignUp({setToken, setIsUser, setUserId}){
     const handleSubmit = (event) => {
         event.preventDefault()
         const hashedPassword = bcrypt.hashSync(password, salt)
-        fetch("http://localhost:3001/users", {
+        fetch("https://gym-project-dc.uc.r.appspot.com/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

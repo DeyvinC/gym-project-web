@@ -8,12 +8,6 @@ function App() {
 const [token, setToken] = useState();
 const [isUser, setIsUser] = useState(false);
 const [userId, setUserId] = useState();
-console.log(userId)
-
-// useEffect(() => {
-//   const myToken = localStorage.getItem('token')
-//   setToken(myToken)
-// }, [])
 
   return (
     <section>
@@ -23,6 +17,7 @@ console.log(userId)
         : <SignUp setIsUser={setIsUser} setToken={setToken}  setUserId={setUserId}/>
       : <WelcomePage userId={userId} token={token} setToken={setToken}/>
     }  
+    <footer className='footer'>Copy right here</footer>
     </section>
   );
 }
