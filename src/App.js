@@ -17,7 +17,7 @@ const [userId, setUserId] = useState();
         : <SignUp setIsUser={setIsUser} setToken={setToken}  setUserId={setUserId}/>
       : <WelcomePage userId={userId} token={token} setToken={setToken}/>
     }  
-    <footer className='footer'>Copy right here</footer>
+    <footer className='footer'> &copy; Body Geek 2022</footer>
     </section>
   );
 }
