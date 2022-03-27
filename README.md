@@ -5,5 +5,5 @@
 <br />
 
 ## Sign Up Page
-![The sign up page is very similar to the login page. Both have a gym background with and in the center there is a white box that has both an email and password field. Also two buttons one for loging in or signing up.](./signUp-screenShot.png)
+![The sign up page is very similar to the login page. Both have a gym background with and in the center there is a white box that has both an email and password field. Also two buttons one for loging in or signing up.](./src/signUp-screenShot.png)
 There is also a Login page thats very similar.
