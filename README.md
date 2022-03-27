@@ -21,6 +21,9 @@ There is also a Login page thats very similar.
 
 ## Completed Section
 <br/>
+
 - Once you've completed your workout and added it to the completed section it will appear on this page like shown below. Even though it doesn't show, it is timestamped to when you completed each workout.
+
 <br/>
+
 ![In this image there is a list of completed workouts depending on which you have completed. Also its time stamped depending on the date you completed it.](./completed-section-screenShot.png)
